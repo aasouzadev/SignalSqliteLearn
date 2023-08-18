@@ -1,0 +1,7 @@
+{
+  "name": "sqliteLearn",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
