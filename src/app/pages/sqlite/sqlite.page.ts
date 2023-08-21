@@ -24,7 +24,13 @@ export class SqlitePage implements OnInit {
   }
 
   updateUser(user: User) {
-    const updatedUser: User = { ...user, active: !user.active };
+    if (user.active) {
+      user.active = 1
+      
+    } else {
+      user.active = 0
+    }
+    const updatedUser: User = { ...user, active: user.active };
     this.dbService.updateUser(updatedUser);
   }
 

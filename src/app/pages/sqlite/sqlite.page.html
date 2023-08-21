@@ -33,7 +33,7 @@
    [(ngModel)]="user.active"
    (ionChange)="updateUser(user)">
   </ion-checkbox>
-  <ion-label>{{user.name}}</ion-label>
+  <ion-label [style.text-decoration]="user.active ? 'line-through' : 'none'">{{user.name}}</ion-label>
   <ion-button
   slot="end"
   (click)="deleteUser(user)"
