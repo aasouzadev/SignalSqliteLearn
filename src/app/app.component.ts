@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DatabaseService } from './services/database/database.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private dbService: DatabaseService) {
+    this.initApp();
+
+  }
+
+  async initApp() {
+   await this.dbService.initializePlugin();
+     
+      }
 }

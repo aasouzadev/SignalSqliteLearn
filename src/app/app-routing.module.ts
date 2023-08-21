@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'local',
+    loadChildren: () => import('./pages/local-store/local-store.module').then( m => m.LocalStorePageModule)
+  },
+  {
+    path: 'sqlite',
+    loadChildren: () => import('./pages/sqlite/sqlite.module').then( m => m.SqlitePageModule)
+  },
 ];
 
 @NgModule({
