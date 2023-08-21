@@ -5,9 +5,42 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">sqlite</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item>
+     <ion-input
+     label="Nome"
+     type="text"
+     [(ngModel)]="newUserName"
+     placeholder="Nome"
+     fill="outline"
+     labelPlacement="floating"
+     >
+     </ion-input>
+     <ion-button
+     (click)="createUser()"
+     color="success"
+     fill="outline"
+     slot="end"
+
+     >
+     <ion-icon name="add"></ion-icon>
+     </ion-button>
+    </ion-item>
+  </ion-list>
+<ion-item *ngFor="let user of usersSignal()">
+  <ion-checkbox
+   slot="start"
+   [(ngModel)]="user.active"
+   (ionChange)="updateUser(user)">
+  </ion-checkbox>
+  <ion-label>{{user.name}}</ion-label>
+  <ion-button
+  slot="end"
+  (click)="deleteUser(user)"
+  color="danger"
+  fill="clear">
+    <ion-icon name="trash" slot="icon-only"></ion-icon>
+  </ion-button>
+</ion-item>
+
 </ion-content>

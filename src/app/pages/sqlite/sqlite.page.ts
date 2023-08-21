@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, WritableSignal } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
 import { DatabaseService } from 'src/app/services/database/database.service';
 
@@ -8,10 +8,12 @@ import { DatabaseService } from 'src/app/services/database/database.service';
   styleUrls: ['./sqlite.page.scss'],
 })
 export class SqlitePage implements OnInit {
-  users = this.dbService.getUsers();
+  usersSignal: WritableSignal<User[]>;
   newUserName = '';
 
-  constructor(private dbService: DatabaseService) { }
+  constructor(private dbService: DatabaseService) {
+    this.usersSignal = this.dbService.getUsersSignal();
+  }
 
   ngOnInit() {
   }
@@ -22,8 +24,8 @@ export class SqlitePage implements OnInit {
   }
 
   updateUser(user: User) {
-    const active = user.active ? 1 : 0;
-    this.dbService.updateUser(user);
+    const updatedUser: User = { ...user, active: !user.active };
+    this.dbService.updateUser(updatedUser);
   }
 
   deleteUser(user: User) {
@@ -33,5 +35,4 @@ export class SqlitePage implements OnInit {
   getUsersbyId(id: number) {
     return this.dbService.getUsersbyId(id);
   }
-
 }
