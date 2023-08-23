@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'sqlite',
     loadChildren: () => import('./pages/sqlite/sqlite.module').then( m => m.SqlitePageModule)
   },
+  {
+    path: 'ionic-storage',
+    loadChildren: () => import('./pages/ionic-storage/ionic-storage.module').then( m => m.IonicStoragePageModule)
+  },
 ];
 
 @NgModule({
