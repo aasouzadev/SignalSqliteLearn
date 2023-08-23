@@ -98,7 +98,7 @@ Convidamos você a contribuir com o SignalSqliteLearn e fazer parte da nossa jor
 
 ### Começando
 
-1. Clone o repositório: `git clone https://github.com/your-username/SignalSqliteLearn.git`
+1. Clone o repositório: `git clone [https://github.com/aasouzadev/SignalSqliteLearn.git]`
 2. Navegue até o diretório do projeto: `cd SignalSqliteLearn`
 3. Instale as dependências: `npm install`
 4. Inicie o servidor de desenvolvimento: `ionic serve`
