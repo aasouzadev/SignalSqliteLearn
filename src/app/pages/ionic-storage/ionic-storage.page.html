@@ -12,6 +12,7 @@
       <ion-button color="danger" slot="end" (click)="deleteTask(task.id)">Delete</ion-button>
     </ion-item>
   </ion-list>
+  <ion-item>
     <ion-input [(ngModel)]="newTask.taskname" placeholder="New task"></ion-input>
     <ion-button color="primary" slot="end" (click)="addTask(newTask)">Add</ion-button>
   </ion-item>
